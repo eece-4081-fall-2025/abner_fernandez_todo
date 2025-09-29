@@ -6,8 +6,8 @@
 * **IDE**: Visual Studio Code
 * **Python Version**: 3.12.7 
 * **Framework**: Django 5.2.6 
-* **Virtual Environment**: `venv` (created with `python -m venv venv`)
-* **OS**: [Your Operating System, e.g., Windows 11]
+* **Virtual Environment**: `venv` 
+* **OS**: Windows 11
 
 
 # abner_fernandez_todo
