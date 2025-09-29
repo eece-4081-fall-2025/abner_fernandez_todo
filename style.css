@@ -1,0 +1,30 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+
+  /* Background image with blue and black waves */
+  background: url('https://images.dog.ceo/breeds/husky/n02110185_1469.jpg') repeat-x,
+              linear-gradient(to bottom, #0d1b2a, #1b263b);
+  background-size: 200px 200px, cover;
+  animation: moveBackground 10s linear infinite;
+}
+
+@keyframes moveBackground {
+  0% { background-position: 0 0, 0 0; }
+  50% { background-position: 200px 0, 0 0; }
+  100% { background-position: 0 0, 0 0; }
+}
+container {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  background: rgba(0,0,0,0.5); /* semi-transparent */
+  padding: 40px;
+  border-radius: 12px;
+  width: 350px;
+}
