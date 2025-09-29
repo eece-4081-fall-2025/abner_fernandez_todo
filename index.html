@@ -1,13 +1,10 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Interactive To-Do List</title>
+<title>Interactive To-Do List with Dogs 🐶</title>
 <style>
-  /* Background with animated waves */
   body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -44,7 +41,7 @@
     background: rgba(0,0,0,0.5);
     padding: 40px;
     border-radius: 12px;
-    width: 300px;
+    width: 350px;
   }
 
   h1 {
@@ -53,7 +50,7 @@
 
   input[type="text"] {
     padding: 10px;
-    width: 70%;
+    width: 60%;
     border-radius: 5px;
     border: none;
     outline: none;
@@ -94,6 +91,14 @@
     align-items: center;
   }
 
+  li img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
   li button {
     background-color: #ff5555;
     color: white;
@@ -107,32 +112,50 @@
 <body>
 <div class="waves"></div>
 <div class="container">
-  <h1>My To-Do List</h1>
+  <h1>My To-Do List 🐶</h1>
   <input type="text" id="taskInput" placeholder="Enter a task">
   <button onclick="addTask()">Add</button>
   <ul id="taskList"></ul>
 </div>
 
 <script>
+  // Array of dog image URLs
+  const dogImages = [
+    "https://images.dog.ceo/breeds/husky/n02110185_1469.jpg",
+    "https://images.dog.ceo/breeds/beagle/n02088364_11136.jpg",
+    "https://images.dog.ceo/breeds/terrier-norfolk/n02094114_3956.jpg",
+    "https://images.dog.ceo/breeds/poodle-toy/n02113624_9550.jpg",
+    "https://images.dog.ceo/breeds/malinois/n02105162_5626.jpg"
+  ];
+
   function addTask() {
     const input = document.getElementById("taskInput");
     const task = input.value.trim();
     if(task === "") return;
 
     const li = document.createElement("li");
-    li.textContent = task;
 
+    // Add random dog image
+    const img = document.createElement("img");
+    img.src = dogImages[Math.floor(Math.random() * dogImages.length)];
+    li.appendChild(img);
+
+    // Add task text
+    const span = document.createElement("span");
+    span.textContent = task;
+    li.appendChild(span);
+
+    // Add remove button
     const removeBtn = document.createElement("button");
     removeBtn.textContent = "X";
     removeBtn.onclick = () => li.remove();
-
     li.appendChild(removeBtn);
-    document.getElementById("taskList").appendChild(li);
 
+    document.getElementById("taskList").appendChild(li);
     input.value = "";
   }
 
-  // Optional: allow pressing Enter to add task
+  // Allow pressing Enter to add task
   document.getElementById("taskInput").addEventListener("keydown", function(e){
     if(e.key === "Enter") addTask();
   });
