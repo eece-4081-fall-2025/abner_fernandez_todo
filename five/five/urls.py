@@ -14,9 +14,15 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+# five/urls.py - The Project's main URL configuration file
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include # <-- CRUCIAL: Must import 'include'
 
 urlpatterns = [
+    # Built-in path for the admin interface
     path('admin/', admin.site.urls),
+    
+    # Path to include URLs from your 'todo' application. 
+    # This makes the task list the default homepage (path='')
+    path('', include('todo.urls')), # <-- CRUCIAL: Links the root URL to your todo app
 ]
